@@ -3,8 +3,8 @@ namespace TechJobsOO
 {
     public class Job
     {
-        public int Id { get; }
-        private static int nextId = 1;
+        public int Id { get; set; }
+        private static int nextId { get; set; } = 1; 
 
         public string Name { get; set; }
         public Employer EmployerName { get; set; }
@@ -17,17 +17,19 @@ namespace TechJobsOO
         public Job()
         {
 
-            Id = nextId;
-            nextId++;
+           Id = nextId;
+           nextId++;
         }
 
         public Job(string name, Employer employerName, Location employerLocation, PositionType jobType, CoreCompetency jobCoreCompetency)
         {
-            Name = name;
-            EmployerName = employerName;
-            EmployerLocation = employerLocation;
-            JobType = jobType;
-            JobCoreCompetency = jobCoreCompetency;
+            this.Name = name;
+            this.EmployerName = employerName;
+            this.EmployerLocation = employerLocation;
+            this.JobType = jobType;
+            this.JobCoreCompetency = jobCoreCompetency;
+            this.Id = nextId++;
+            
         }
 
         // TODO: Generate Equals() and GetHashCode() methods.
