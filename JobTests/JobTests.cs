@@ -42,6 +42,62 @@ namespace JobTests
 
         }
 
+        [TestMethod]
+        public void TestToStringBlankLines()
+        {
+            Job jobTest= new Job("Producter Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            string s = jobTest.ToString();
+            
+            Assert.AreEqual("\n",s.Substring(0,1));
+            Assert.AreEqual("\n",s.Substring(s.Length-1,1));
+        }
+        [TestMethod]
+        public void TestToString()
+        {
+            Job jobTest = new Job("Producter Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            int idTest = jobTest.Id;
+            string expectedstr ="\n"+
+                "ID: "+idTest+"\n" +
+                "Name: "+"Producter Tester"+"\n"+
+                "Employer: "+"ACME"+"\n"+
+                "Location: "+"Desert"+"\n"+
+                "Position Type: "+"Quality control"+"\n"+
+                "Core Competency: "+"Persistence"+"\n";
+            string actualstr = jobTest.ToString();
+            Assert.AreEqual(expectedstr, actualstr);
+
+        }
+        [TestMethod]
+        public void TestToEmptyJob()
+        {
+            Job emptyJob = new Job("", new Employer(""),new Location(""),new PositionType(""),new CoreCompetency(""));
+            int emptyJobId = emptyJob.Id;
+            string expectedstr = "OOPS! This job does not seem to exist.";
+            string actualstr = emptyJob.ToString();
+
+            Assert.AreEqual(expectedstr, actualstr);
+
+        }
+        [TestMethod]
+        public void TestToFieldEmpty()
+        {
+            
+            Job emptyFieldJob = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            int emptyFieldJobId = emptyFieldJob.Id;
+            string actualStr = emptyFieldJob.ToString();
+            string expectedStr = "\n" +
+                "ID: " + emptyFieldJobId + "\n" +
+                "Name: No data found\n" +
+                "Employer: ACME\n" +
+                "Location: Desert\n" +
+                "Position Type: Quality control\n" +
+                "Core Competency: Persistence\n";
+            Assert.AreEqual(expectedStr, actualStr);
+
+        }
+
+
+        
 
     }
 }
