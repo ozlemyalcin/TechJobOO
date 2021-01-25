@@ -24,18 +24,20 @@ namespace JobTests
         {
             Job jobTest = new Job("Producter Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"),new CoreCompetency( "Persistence"));
             Assert.AreEqual("Producter Tester", jobTest.Name);
-            //Assert.AreEqual("ACME", jobTest.EmployerName);
-            //Assert.AreEqual("Desert", jobTest.EmployerLocation);
-            //Assert.AreEqual("Quality control", jobTest.JobType);
-            //Assert.AreEqual("Persistence", jobTest.JobCoreCompetency);
-
+            Assert.AreEqual("ACME", jobTest.EmployerName.Value);
+            Assert.AreEqual("Desert", jobTest.EmployerLocation.Value);
+            Assert.AreEqual("Quality control", jobTest.JobType.Value);
+            Assert.AreEqual("Persistence", jobTest.JobCoreCompetency.Value);
+            
         }
+
+
         [TestMethod]
         public void TestJobsForEquality()
         {
             Job jobTest1 = new Job("Web Developer", new Employer("LaunchCode"), new Location("St. Louis"), new PositionType("Front-end developer"), new CoreCompetency("JavaScript"));
             Job jobTest2= new Job("Web Developer", new Employer("LaunchCode"), new Location("St. Louis"), new PositionType("Front-end developer"), new CoreCompetency("JavaScript"));
-            Assert.IsFalse(jobTest1.Id==jobTest2.Id);
+            Assert.IsFalse(jobTest1.Equals(jobTest2.Id));
 
 
         }
