@@ -47,25 +47,28 @@ namespace TechJobsOO
 
         public override string ToString()
         {
-            
-            if (Name == "" && EmployerName.Value == "" && EmployerLocation.Value == "" && JobType.Value == "" && JobCoreCompetency.Value == "")
+
+            if (Name == ""  && EmployerName.Value == ""  && EmployerLocation.Value == ""  && JobType.Value == ""  && JobCoreCompetency.Value == "" )
             {
                 return "OOPS! This job does not seem to exist.";
             }
-            if (Name == "")
+            if (Name == null && EmployerName==null && EmployerLocation==null && JobType==null && JobCoreCompetency==null)
+            {
+               return "OOPS! This job does not seem to exist.";
+            }
+            if (Name == "" )
             {
                 Name= "No data found";
             }
-
             if (EmployerName.Value == "")
             {
                 EmployerName.Value= "No data found";
             }
-            if (EmployerLocation.Value == "")
+            if (EmployerLocation.Value == "" )
             {
                 EmployerLocation.Value= "No data found";
             }
-            if (JobType.Value == "")
+            if (JobType.Value == "" )
             {
                 JobType.Value= "No data found";
             }

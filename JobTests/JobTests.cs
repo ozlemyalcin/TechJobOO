@@ -37,7 +37,7 @@ namespace JobTests
         {
             Job jobTest1 = new Job("Web Developer", new Employer("LaunchCode"), new Location("St. Louis"), new PositionType("Front-end developer"), new CoreCompetency("JavaScript"));
             Job jobTest2= new Job("Web Developer", new Employer("LaunchCode"), new Location("St. Louis"), new PositionType("Front-end developer"), new CoreCompetency("JavaScript"));
-            Assert.IsFalse(jobTest1.Equals(jobTest2.Id));
+            Assert.IsFalse(jobTest1.Equals(jobTest2));
 
 
         }
